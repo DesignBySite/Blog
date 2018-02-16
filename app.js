@@ -31,6 +31,7 @@ app.get("/", function(req, res) {
     res.redirect("/blogs");
 });
 
+//index route
 app.get("/blogs", function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
@@ -40,6 +41,12 @@ app.get("/blogs", function(req, res){
         }
     });
 });
+//New Route
+
+app.get("/blogs/new", function(req, res) {
+    res.render("new");
+});
+
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("server is listening");
