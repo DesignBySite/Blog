@@ -7,7 +7,8 @@ app                = express();
  
  
 //app config    
-mongoose.connect("mongodb://localhost/restful_blog_app");
+// mongoose.connect("mongodb://localhost/restful_blog_app");
+mongoose.connect("mongodb://Kevin:ghjkhg22@ds241658.mlab.com:41658/restful-blog-app");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,12 +24,6 @@ var blogSchema = new mongoose.Schema({
 });
 
 var Blog = mongoose.model("Blog", blogSchema);
-
-Blog.create({
-    title: "Test",
-    image: "https://images.unsplash.com/photo-1470328358326-dee4879da669?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=407e114dc47bc1df4ce0e4292f158576&auto=format&fit=crop&w=750&q=80",
-    body: "Hello"
-});
 
 //Show RESTfulnode Routes
 app.get("/", function(req, res) {
